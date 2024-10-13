@@ -1,14 +1,16 @@
 pipeline {
     agent {
         docker {
-            image 'maven:3-alpine'
-            args '-v /root/.m2:/root/.m2'
+            image 'ubuntu:latest'
+            args '-u root'
         }
     }
     stages {
         stage('Build') {
             steps {
-                sh 'mvn --version'
+                '''
+                apt update
+                apt install jq -y
             }
         }
     }
