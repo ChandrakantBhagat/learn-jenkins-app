@@ -1,18 +1,20 @@
 pipeline {
-    agent {
-        docker {
-            image 'ubuntu:latest'
-            args '-u root'
-        }
-    }
+    agent any
     stages {
-        stage('Build') {
-            steps {
-                sh '''
-                apt update
-                apt install jq -y
-                '''
-            }
+        stage "build" {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
+         steps{
+            sh '''
+            echo " helllow"
+
+            '''
+
+
+         }   }
         }
     }
 }
