@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                '''
+                sh '''
                 apt update
                 apt install jq -y
                 '''
