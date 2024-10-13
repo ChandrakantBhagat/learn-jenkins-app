@@ -11,6 +11,7 @@ pipeline {
                 '''
                 apt update
                 apt install jq -y
+                '''
             }
         }
     }
